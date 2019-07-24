@@ -1,3 +1,5 @@
+package emp;
+import java.util.Date;  
 import java.util.Scanner;
 class employee
 {
@@ -7,7 +9,7 @@ private String name,designation,dob,doj;
 private int years;
 float get_id()
 {
-	return id;
+return id;
 }
 void input()
 {
@@ -27,51 +29,58 @@ System.out.println("Does Employee Opt for LIC Premium Account? (1. Yes / 2. No):
 lic=input.nextFloat();
 if(lic==1)
 {
-	                   System.out.println("Enter Employee LIC Amount                              :");
-						lic=input.nextFloat();
+                  System.out.println("Enter Employee LIC Amount                              :");
+lic=input.nextFloat();
 }
 else 
 {
-	lic=0;
+lic=0;
 }
-System.out.println("Enter Employee hours worked                                 :");
-hours=input.nextFloat();
-System.out.println("Enter hourly wage                                           :");
-hourlywage=input.nextFloat();
-System.out.println("Enter experience of the employee (years)                    :");
-years=input.nextInt();
+if(designation.equals("Intern"))
+{
+    System.out.println("Enter Employee hours worked                                 :");
+    hours=input.nextFloat();
+    System.out.println("Enter hourly wage                                           :");
+    hourlywage=input.nextFloat();
+}
+else
+{
+    hours=0;
+    hourlywage=0;
+}
+
 }
 void calc()
 {
 if(designation.equals("Intern"))
 {
-	da=2000;
-	hra=1000;
-	pf=500;
-	gross=(hours*hourlywage)+da+hra;
-	deductions=lic+pf;
-	net=gross-deductions;
+da=2000;
+hra=1000;
+pf=500;
+gross=(hours*hourlywage)+da+hra;
+deductions=lic+pf;
+net=gross-deductions;
 }
 else if(designation.equals("Manager"))
 {
-	da=((0.4f)*basic);
-	hra=((0.1f)*basic);
-	pf=((0.08f)*basic);
-	gross=basic+da+hra;
-	deductions=lic+pf;
-	net=gross-deductions;
+da=((0.4f)*basic);
+hra=((0.1f)*basic);
+pf=((0.08f)*basic);
+gross=basic+da+hra;
+deductions=lic+pf;
+net=gross-deductions;
 }
 else
 {
-	da=(0.3f*basic);
-	hra=(0.1f*basic);
-	pf=(0.08f*basic);
-	gross=basic+da+hra;
-	deductions=lic+pf;
-	net=gross-deductions;
+da=(0.3f*basic);
+hra=(0.1f*basic);
+pf=(0.08f*basic);
+gross=basic+da+hra;
+deductions=lic+pf;
+net=gross-deductions;
 }
 }
-void display()
+void payslip()
 {
 System.out.println("**************************************");
 System.out.println("           Employer Details           ");
@@ -90,72 +99,64 @@ System.out.println("Net Salary        : " +net);
 System.out.println("**************************************");
 
 }
+void display()
+{
+    System.out.println(" Salary Details ");
+    System.out.println(" Gross Pay       : "+ gross);
+    System.out.println(" Deductions      : "+ deductions);
+    System.out.println(" Net Pay         : "+ net);
+}
 void promote()
 {	
-	int ch;
-	if((years>0)&&(years<5))
-	{
-		System.out.println("Promotion to 1. Analyst, 2. Software engineer, 3. TeamLead Possible!");
-		System.out.println("Choose option to promote candidate, Enter '4' to exit");
-		ch=input.nextInt();
-		if(ch==1)
-		{
-			designation="Analyst";
-		}
-		else if(ch==2)
-		{
-			designation="Software Engineer";
-		}
-		else if(ch==3)
-		{
-			designation="Team Lead";
-		}
-		if(ch!=4)
-		{
-			System.out.println("Promotion Succesful!");
-			return;
-		}
-	}
-	else if(years>10)
-	{
-		if(designation.equals("Manager"))
-			System.out.println("Already High Posted!");
-		else
-		{ 
-			System.out.println("Promotion to Manager or other posts available");
-			System.out.println("1. Analyst, 2. Software engineer, 3. TeamLead, 4. Manager, 5. Exit");
-			ch=input.nextInt();
-			if(ch==1)
-			{
-				designation="Analyst";
-			}
-			else if(ch==2)
-			{
-			designation="Software Engineer";
-			}
-			else if(ch==3)
-			{
-				designation="Team Lead";
-
-			}
-			else if(ch==4)
-			{
-				designation="Manager";
-			}
-			if(ch!=5)
-			{
-				System.out.println("Promotion Succesful!");
-				return;
-			}
-		}
-	}
+        String year;
+        Date d=new Date();  
+        int year1=d.getYear();
+        int last;
+        last = year1 + 1900;
+        year= (doj.substring(6,10));
+        int first = Integer.parseInt(year);
+        years = last - first;
+int ch;
+        System.out.println(" Number of years Employee worked: "+ years);
+if(designation.equals("Others"))
+        {
+            if((years>5))
+            {
+System.out.println("Promotion to Manager Available!");
+System.out.println("Do you want to Promote individual ?(1.Yes / 2.No)");
+                ch=input.nextInt();
+                if(ch==1)
+                {
+                    designation = "Manager";
+                }
+            }
+            calc();
+        }
+        else if(designation.equals("Intern"))
+        {
+             if(years>2)
+             {
+                System.out.println("Promotion to Others Available!");
+System.out.println("Do you want to Promote individual ?(1.Yes / 2.No)");
+                ch=input.nextInt();
+                if(ch==1)
+                {
+                    designation = "Others";
+                }
+             }
+             calc();
+        }
+else if(designation.equals("Manager"))
+{
+System.out.println("Already Highly Posted!");
+        }
 }
-	 
-		
+
+
 }
 class emp
 {
-static int n,p,k;
+static int n,id,k,ch;
 public static void main(String args[])
 {
 Scanner input=new Scanner(System.in);
@@ -164,22 +165,47 @@ n=input.nextInt();
 employee a[]=new employee[n];
 for(int i=0;i<n;i++)
 {
-	a[i]=new employee();
-	a[i].input();
-	a[i].calc();
-	a[i].display();
-	a[i].promote();
+a[i]=new employee();
+a[i].input();
+a[i].calc();
+a[i].display();
 }
-System.out.println("Enter the Employee ID whose Payslip is to be printed: ");
-p=input.nextInt();
-for(int k=0;k<n;k++)
+do
 {
-	if(a[k].get_id()==p)
-	{
-		break;
-	}
+System.out.println(" Menu ");
+System.out.println("1. Promote Employee ");
+System.out.println("2. Print Payslip ");
+ch=input.nextInt();
+if(ch==2)
+{
+    System.out.println("Enter ID of Employee to print payslip: ");
+    id=input.nextInt();
+    for(int k=0;k<n;k++)
+    {
+        if(a[k].get_id()==id)
+                {
+                    break;
+                }
+    }
+    a[k].payslip();
 }
-a[k].display();
+else if(ch==1)
+{
+    System.out.println(" Enter ID of employee to promote: ");
+    id=input.nextInt();
+    for(int k=0;k<n;k++)
+    {
+        if(a[k].get_id()==id)
+                {
+                    break;
+                }
+    }
+    a[k].promote();
+}
+System.out.println("Do you want to continue: (1.Yes / 2.No) ");
+ch=input.nextInt();
+
+}while(ch==1);
 
 }
 }
