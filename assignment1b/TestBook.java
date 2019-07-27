@@ -32,17 +32,17 @@ class Author
 class Book
 {
 	private String name;
-	private Author author;
+	private Author author[];
 	private double price;
 	private int qty;
-	public Book(String name, Author author, double price)
+	public Book(String name, Author author[], double price)
 	{
 		this.name = name;
 		this.author = author;
 		this.price = price;	
 		this.qty = 0;
 	}
-	public Book(String name, Author author, double price, int qty)
+	public Book(String name, Author author[], double price, int qty)
 	{
 		this.name = name;
 		this.author = author;
@@ -53,7 +53,7 @@ class Book
 	{
 		return name;
 	}
-	Author getAuthor()
+	Author[] getAuthors()
 	{
 		return author;
 	}
@@ -75,11 +75,13 @@ class Book
 	}
 }
 
+
+
 public class TestBook
 {
 	static Scanner in = new Scanner(System.in);
 	static String bname,aname,email;
-	static int qty,ch;
+	static int qty,ch,acount, i=0;
 	static double price;
 	static char gender;
 	public static void main (String args[])
@@ -88,12 +90,25 @@ public class TestBook
 		System.out.println();
 		System.out.println(" Enter Name of Book: ");
 		bname = in.next();
-		System.out.println(" Enter Author of Book: ");
-		aname = in.next();
-		System.out.println(" Enter Author Email: ");
-		email = in.next();
-		System.out.println(" Enter Author Gender ( M / F): ");
-		gender = in.next().charAt(0);
+		System.out.println(" Enter Number of Authors for Book ");
+		acount = in.nextInt();
+		Author temp;
+		Author A[];
+		for(i=0;i<acount;i++)
+		{
+			System.out.println(" Enter Details of Author "+ (i+1) );
+			System.out.println(" Enter Name of Author: ");
+			aname = in.next();
+			System.out.println(" Enter Author Email: ");
+			email = in.next();
+			System.out.println(" Enter Author Gender ( M / F): ");
+			gender = in.next().charAt(0);
+			System.out.println(" Initialising Author Class Object ");
+			Author A[i] = new Author(aname, email, gender);
+			System.out.println();
+			System.out.println(" Author Class Object Initialised ");
+			System.out.println();
+		}
 		System.out.println(" Do you want to enter Quantity of Book ? (1. Yes / 2. No ) ");
 		ch = in.nextInt();
 		if(ch == 1)
@@ -104,12 +119,7 @@ public class TestBook
 		System.out.println(" Enter price of Book: ");
 		price = in.nextDouble();
 		System.out.println();
-		System.out.println(" Initialising Author Class Object ");
-		Author A = new Author(aname, email, gender);
 		Book B;
-		System.out.println();
-		System.out.println(" Author Class Object Initialised ");
-		System.out.println();
 		System.out.println(" Initialising Book Class Object ");
 		if(ch == 1)
 		{
@@ -124,10 +134,19 @@ public class TestBook
 		System.out.println();
 		System.out.println(" Testing setEmail() and getEmail() ");
 		System.out.println();
+		System.out.println(" Enter Name of Author to change email ");
+		aname = in.next();
+		for(i=0;i<acount;i++)
+		{
+			if(A[i].getName().equals(aname))
+			{
+				break;
+			}
+		}
 		System.out.println(" Enter new mail of Author: ");
 		email = in.next();
-		B.getAuthor().setEmail(email);
-		System.out.println(" New mail of Author: "+ B.getAuthor().getEmail());
+		A[i].setEmail(email);
+		System.out.println(" New mail of Author: "+ A[i].getEmail());
 		System.out.println();
 		System.out.println(" Testing setPrice() and getPrice() ");
 		System.out.println();
