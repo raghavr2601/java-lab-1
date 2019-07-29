@@ -122,26 +122,56 @@ public class TestBook
 		System.out.println();
 		System.out.println(" Book Class Object Initialised ");
 		System.out.println();
-		System.out.println(" Testing setEmail() and getEmail() ");
+		do
+		{
+		System.out.println(" Menu ");
+		System.out.println(" 1. Test setEmail() ");
+		System.out.println(" 2. Test getEmail() ");
+		System.out.println(" 3. Test setPrice() ");
+		System.out.println(" 4. Test getPrice() ");
+		System.out.println(" 5. Test setQty() ");
+		System.out.println(" 6. Test getQty() ");
+		ch = in.nextInt();
+		if(ch == 1)		
+		{
+			System.out.println(" Testing setEmail() and getEmail() ");
+			System.out.println();
+			System.out.println(" Enter new mail of Author: ");
+			email = in.next();
+			B.getAuthor().setEmail(email);
+		}
+		else if(ch == 2)
+		{		
+			System.out.println(" New mail of Author: "+ B.getAuthor().getEmail());
 		System.out.println();
-		System.out.println(" Enter new mail of Author: ");
-		email = in.next();
-		B.getAuthor().setEmail(email);
-		System.out.println(" New mail of Author: "+ B.getAuthor().getEmail());
-		System.out.println();
-		System.out.println(" Testing setPrice() and getPrice() ");
-		System.out.println();
-		System.out.println(" Enter new price of Book: ");
-		price = in.nextDouble();
-		B.setPrice(price);
-		System.out.println(" New price of Book :"+ B.getPrice());
-		System.out.println();
+		}
+		else if(ch ==3)
+		{
+			System.out.println(" Testing setPrice() and getPrice() ");
+			System.out.println();
+			System.out.println(" Enter new price of Book: ");
+			price = in.nextDouble();
+			B.setPrice(price);
+		}
+		else if(ch == 4)
+		{
+			System.out.println(" New price of Book :"+ B.getPrice());
+			System.out.println();
+		}
+		else if(ch == 5)
+		{
 		System.out.println(" Testing setQty() and getQty() ");
 		System.out.println();
 		System.out.println(" Enter new quantity of Book: ");
 		qty = in.nextInt();
 		B.setQty(qty);
+		}
+		else if(ch == 6)
+		{		
 		System.out.println(" New Quantity of Book: "+ B.getQty());
+		}
+		System.out.println(" Do you want to test again ? (1.Yes/2.No) ");
+		ch = in.nextInt();
+		}while(ch == 1);	
 	}
 }
-
