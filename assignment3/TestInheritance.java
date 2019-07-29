@@ -156,7 +156,6 @@ public class TestInheritance{
 		System.out.println(" Testing setAddress() ");
 		System.out.println(" Enter new Student Address ");
 		address = in.next();
-		in.close();
 		S.setAddress(address);
 		System.out.println(" Faculty new Address :"+ S.getAddress());
 		System.out.println(" Student New Total "+ S.getTotal() + " and New GPA "+ S.calGPA());
