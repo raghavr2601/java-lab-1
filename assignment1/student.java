@@ -1,201 +1,209 @@
 package stu;
-import java.util.Scanner;
-class student
+import java.util.*;
+class Student
 {
 Scanner input=new Scanner(System.in);
-private int regno,total;
-private String name,dept,grade;
-private float avg;
-private int mark[]=new int[3];
-int get_id()
+int regno,total;
+String name,dept,grade;
+float avg;
+int mark[]=new int[3];
+Student()
 {
-    return regno;
+  regno=0;
 }
-String get_name()
+Student(String name,int regno,String dept,int mark[])
 {
-    return name;
-}
-student(String Name, int reg, String dep, int marks[])
-{
-	regno = reg;
-	name = Name;
-	dept = dep;
-	for(int i=0;i<3;i++)
-		mark[i]=marks[i];
+  this.name=name;
+  this.regno=regno;
+  this.dept=dept;
+  this.mark[0]=mark[0];
+  this.mark[1]=mark[1];
+  this.mark[2]=mark[2];
 }
 void calculate()
 {
-	total=mark[0]+mark[1]+mark[2];
-	avg=total/3;
-	if(avg>90)
-	{	grade="O";
-		
-	}
-	else if((avg<90)&&(avg>=80))
-	{
-		grade="A+";
-		
-	}
-	else if((avg<80)&&(avg>=70))
-	{
-		grade="A";
-		
-	}
-	else if((avg<70)&&(avg>=60))
-	{
-		grade="B+";
-		
-	}
-	else if((avg<60)&&(avg>=50))
-	{
-		grade="B";
-		
-	}
-	else
-	{
-		grade="RA";
-		
-	}
+  total=mark[0]+mark[1]+mark[2];
+  avg=total/3;
+  if(avg>90)
+  { grade="O";
+   
+  }
+  else if((avg>80)&&(avg<=90))
+  {
+    grade="A+";
+   
+  }
+  else if((avg>70)&&(avg<=80))
+  {
+    grade="A";
+   
+  }
+  else if((avg>60)&&(avg<=70))
+  {
+    grade="B+";
+   
+  }
+  else if((avg>=50)&&(avg<=60))
+  {
+    grade="B";
+   
+  }
+  else
+  {
+    grade="RA";
+   
+  }
 }
-void display(int xregno)
+void display()
 {
-	System.out.println("***************************");
-	System.out.println("     Student Details    ");
-	System.out.println("Name          : "+name);
-	System.out.println("Regno         : "+regno);
-	System.out.println("Department    : "+dept);
-	System.out.println("Grade         : "+grade);
-	System.out.println("***************************");
-	
+  System.out.println("***************************");
+  System.out.println("     Student Details    ");
+  System.out.println("Name          : "+name);
+  System.out.println("Regno         : "+regno);
+  System.out.println("Department    : "+dept);
+  System.out.println("Grade         : "+grade);
+  System.out.println("***************************");
 }
-void display(String xdep)
+
+void search(int regno, Student s[],int n)
 {
-	System.out.println("***************************");
-	System.out.println("     Student Details    ");
-	System.out.println("Name          : "+name);
-	System.out.println("Regno         : "+regno);
-	System.out.println("Department    : "+dept);
-	System.out.println("Grade         : "+grade);
-	System.out.println("***************************");
-	
+  int flag=0;
+  for(int i=0;i<n;i++)
+  {
+    if(s[i].regno==regno)
+    {
+      flag=1;
+      s[i].display();
+      break;
+    }
+  }
+  if(flag==0)
+    System.out.println("Record not found");        
 }
-void marksheet(int xregno)
+   
+void search(String sdept,Student s[],int n)
 {
-        System.out.println("***************************");
-	System.out.println("     Student Marksheet    ");
-	System.out.println("Name          : "+name);
-	System.out.println("Regno         : "+regno);
-	System.out.println("Department    : "+dept);
-        System.out.println("Total Marks   : "+total);
-        System.out.println("Average Marks : "+avg);
-	System.out.println("Grade         : "+grade);
-	System.out.println("***************************");
+  int i,flag=0;
+  for(i=0;i<n;i++)
+  {
+    if(((s[i].dept).equals(sdept)))
+    {
+      flag=1;
+      s[i].display();
+    }
+  }
+  if(flag==0)
+    System.out.println("Record not found");
+  }
+
+void marksheet(int regno, Student s[],int n)
+{
+  int flag=0;
+  for(int i=0;i<n;i++)
+  {
+    if(s[i].regno==regno)
+    {
+      flag=1;
+      System.out.println("**************************************");
+      System.out.println("              Marksheet               ");
+      System.out.println("Name       : "+s[i].name);
+      System.out.println("Regno      : "+s[i].regno);
+      System.out.println("Department : "+s[i].dept);
+      System.out.println("Subject 1  : "+s[i].mark[0]);
+      System.out.println("Subject 2  : "+s[i].mark[1]);
+      System.out.println("Subject 3  : "+s[i].mark[2]);
+      System.out.println("**************************************");
+      System.out.println("Total      : "+s[i].total);
+      System.out.println("Grade      : "+s[i].grade);
+      System.out.println("**************************************");
+      System.out.println();
+      break;
+    }
+  }
+  if(flag==0)
+    System.out.println("Record not found");
+   
 }
+
 }
+
 class Stu
 {
-static int n,id,choice,b;
-static String dep;
+static int n,id,choice,flag;
+static String dept;
 public static void main(String args[])
-{	
-	Scanner input=new Scanner(System.in);
-	student a[]=new student[100];
-	do
-	{
-        System.out.println("1. Add Student records ");
-        System.out.println("2. Display Student details ");
-        System.out.println("3. Generate Marksheet ");
-	System.out.println("4. Search the student using ID ");
-	System.out.println("5. Search the student using Dept");
-        System.out.println("6. Exit");
-	System.out.println("Enter your choice: ");
-	choice=input.nextInt();
-        if(choice==1)
+{
+  int regno,total;
+  String name,dept,grade;
+  float avg;
+  int mark[]=new int[3];
+   Scanner input=new Scanner(System.in);
+  Student st=new Student();
+ 
+  Student rec[]=new Student[50];
+ 
+  while(choice!=6)
+  {
+    System.out.println("\n\tMenu ");
+    System.out.println("1. Enter Student Records");
+    System.out.println("2. Display Student Records ");
+    System.out.println("3. Generate Marksheet ");
+    System.out.println("4. Search Student using ID ");
+    System.out.println("5. Search Students using Dept");
+    System.out.println("6. Exit ");
+    System.out.print("Enter Choice : ");
+    choice=input.nextInt();
+   
+    if(choice==1)
+    {
+        System.out.print("Enter the number of students : ");
+        n=input.nextInt();
+        for(int i=0;i<n;i++)
         {
-            System.out.println("Enter the number of students: ");
-            n=input.nextInt();
-            String name, dept;
-            int regno, mark[] = new int [3];
-            for(int i=0;i<n;i++)
-            {
-		System.out.println("Enter the student name");
-		name=input.next();
-		System.out.println("Enter the student regno");
-		regno=input.nextInt();
-		System.out.println("Enter the student department");
-		dept=input.next();
-		System.out.println("Enter the mark of subject 1");
-		mark[0]=input.nextInt();
-		System.out.println("Enter the mark of subject 2");
-		mark[1]=input.nextInt();
-		System.out.println("Enter the mark of subject 3");
-		mark[2]=input.nextInt();
-		a[i]=new student(name,regno,dept,mark);
-		a[i].calculate();
-            }
-            
+        System.out.println("Enter Details : ");
+        System.out.print("Student Name : ");
+        name=input.next();
+        System.out.print("Student Regno : ");
+        regno=input.nextInt();
+        System.out.print("Student Department : ");
+        dept=input.next();
+        System.out.print("Subject 1 : ");
+        mark[0]=input.nextInt();
+        System.out.print("Subject 2 : ");
+        mark[1]=input.nextInt();
+        System.out.print("Subject 3 : ");
+        mark[2]=input.nextInt();
+        rec[i]=new Student(name,regno,dept,mark);
+        rec[i].calculate();
+        System.out.println();
         }
-        else if(choice==2)
+    }
+    if(choice==2)
+    {
+        for(int i=0;i<n;i++)
         {
-            for(int i=0;i<n;i++)
-            {
-                a[i].display(a[i].get_id());
-            }
+            rec[i].display();
         }
-        else if(choice==3)
-        {
-            System.out.println(" Enter ID to Print Marksheet ");
-            id=input.nextInt();
-            int flag=0;
-            for(int i=0;i<n;i++)
-		{	
-			if((a[i].get_id()==id))
-			{
-				flag = 1;
-				a[i].marksheet(id);
-			}
-		}
-		if(flag == 0)
-		{
-			System.out.println(" Student Not Found of entered details! ");
-		}
-        }
-        else if(choice==4)
-	{
-		System.out.println("Enter ID of Student to search: ");	
-		id=input.nextInt();
-		int flag = 0;
-		for(int i=0;i<n;i++)
-		{	
-			if((a[i].get_id()==id))
-			{
-				flag = 1;
-				a[i].display(id);
-			}
-		}
-		if(flag == 0)
-		{
-			System.out.println(" Student Not Found of entered details! ");
-		}
-	}
-	else if(choice==5)
-	{
-		System.out.println("Enter Dept of Student to search:");
-		dep=input.next();
-		int flag = 0;
-		for(int i=0;i<n;i++)
-		{
-			if((a[i].get_name()).equals(dep))
-			{
-				flag = 1;
-				a[i].display(dep);
-			}
-		}
-		if(flag == 0)
-		{
-			System.out.println(" Student Not Found of entered details! ");
-		}
-	}
-	}while(choice!=6);
-	}
-}	
+    }
+    if(choice==3)
+    {
+        System.out.print("Enter Student ID to generate Marksheet: ");
+        id=input.nextInt();
+        st.marksheet(id,rec,n);
+    }
+    else if(choice==4)
+    {
+      System.out.print("Enter Student ID to search: ");
+      id=input.nextInt();
+      st.search(id, rec, n);  
+    }
+    else if(choice==5)
+    {
+      System.out.print("Enter Student Dept to search : ");
+      input.nextLine();
+      dept=input.nextLine();
+      st.search(dept,rec,n);
+    }
+  }
+}
+}
