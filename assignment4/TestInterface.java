@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 package testinterface;
 
@@ -170,6 +174,7 @@ public class TestInterface
     static float marks[] = new float[3];
     public static void main(String[] args) 
     {
+        System.out.println("*******************************************");
         System.out.println(" Class : Employee ");
         System.out.println(" Enter Name : ");
         name = in.next();
@@ -183,14 +188,18 @@ public class TestInterface
         System.out.println(" Enter Basic: ");
         basic = in.nextInt();
         Employee E = new Employee(name, address, empid, dept, basic);
+        System.out.println();
+        System.out.println("*******************************************");
         System.out.println(" Name: "+ E.getName());
         System.out.println(" Address: "+ E.getAddress());
         System.out.println(" Emp ID: "+ E.getEmpid());
         System.out.println(" Department: "+E.getDept());
         System.out.println(" Basic: "+ E.getBasic());
         System.out.println(" Salary: "+ E.calSalary());
+        System.out.println("*******************************************");
         
-        
+        System.out.println();
+        System.out.println("*******************************************");
         System.out.println(" Class : Faculty ");
         System.out.println(" Enter Name : ");
         name = in.next();
@@ -207,15 +216,20 @@ public class TestInterface
         course = in.next();
         System.out.println(" Enter Basic: ");
         basic = in.nextInt();
+        System.out.println();
         Faculty F = new Faculty(name, address, empid, dept, basic, desig, course);
+        System.out.println("*******************************************");
         System.out.println(" Name: "+ F.getName());
         System.out.println(" Address: "+ F.getAddress());
         System.out.println(" Emp ID: "+ F.getEmpid());
         System.out.println(" Department: "+F.getDept());
+        System.out.println(" Designation: "+ F.getDesig());
+        System.out.println(" Course : "+ F.getCourse());
         System.out.println(" Basic: "+ F.getBasic());
         System.out.println(" Salary: "+ F.calSalary());
-        
-        
+        System.out.println("*******************************************");
+        System.out.println();
+        System.out.println("*******************************************");
         System.out.println(" Class : Research Assistant ");
         System.out.println(" Enter Name : ");
         name = in.next();
@@ -232,12 +246,14 @@ public class TestInterface
         course = in.next();
         System.out.println(" Enter Basic: ");
         basic = in.nextInt();
-        System.out.println(" Enter Marks: ");
+        System.out.println(" Enter Marks for 3 Subjects: ");
         for(int i=0;i<3;i++)
         {
             System.out.println(" Enter Mark for Subject "+(i+1));
             marks[i]=in.nextInt();
         }
+        System.out.println();
+        System.out.println("*******************************************");
         ResearchAssistant R = new ResearchAssistant(name, address, empid, dept, basic, project, course,marks);
         System.out.println(" Name: "+ R.getName());
         System.out.println(" Address: "+ R.getAddress());
@@ -248,10 +264,11 @@ public class TestInterface
         System.out.println(" Course: "+R.getCourse());
         marks = R.getMarks();
         for(int i=0;i<3;i++)
-        { 
-            System.out.println(" Mark for Subject "+(i+1)+" is "+marks[i]);
+        {
+            System.out.println("Mark for Subject "+(i+1)+"is"+marks[i]);
         }
         System.out.println(" Salary: "+ R.calSalary());
+        System.out.println("*******************************************");
     }
     
 }
