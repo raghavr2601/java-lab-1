@@ -170,7 +170,7 @@ public class TestInterface
 {
     static Scanner in = new Scanner(System.in);
     static String name, address, empid, dept, desig, course, project;
-    static int basic;
+    static int basic, choice;
     static float marks[] = new float[3];
     public static void main(String[] args) 
     {
@@ -187,6 +187,7 @@ public class TestInterface
         dept = in.next();
         System.out.println(" Enter Basic: ");
         basic = in.nextInt();
+        
         Employee E = new Employee(name, address, empid, dept, basic);
         System.out.println();
         System.out.println("*******************************************");
@@ -197,7 +198,35 @@ public class TestInterface
         System.out.println(" Basic: "+ E.getBasic());
         System.out.println(" Salary: "+ E.calSalary());
         System.out.println("*******************************************");
-        
+        System.out.println(" Do you want to Change Address: (1.Yes /2.No) ");
+        choice = in.nextInt();
+        if(choice == 1)
+        {
+            System.out.println(" Enter New Address: ");
+            in.nextLine();
+            address = in.nextLine();
+            E.setAddress(address);
+            System.out.println(" New Address of Employee: "+ E.getAddress());
+        }
+        System.out.println(" Do you want to Change Department: (1.Yes /2.No) ");
+        choice = in.nextInt();
+        if(choice == 1)
+        {
+            System.out.println(" Enter New Department: ");
+            dept = in.next();
+            E.setDept(dept);
+            System.out.println(" New Department of Employee: "+ E.getDept());
+        }
+        System.out.println(" Do you want to Change Basic: (1.Yes /2.No) ");
+        choice = in.nextInt();
+        if(choice == 1)
+        {
+            System.out.println(" Enter New Basic : ");
+            basic = in.nextInt();
+            E.setBasic(basic);
+            System.out.println(" New Basic of Employee: "+ E.getBasic());
+            System.out.println(" New Salary of Employee: "+ E.calSalary());
+        }
         System.out.println();
         System.out.println("*******************************************");
         System.out.println(" Class : Faculty ");
@@ -228,6 +257,25 @@ public class TestInterface
         System.out.println(" Basic: "+ F.getBasic());
         System.out.println(" Salary: "+ F.calSalary());
         System.out.println("*******************************************");
+        System.out.println(" Do you want to Change Designation: (1.Yes /2.No) ");
+        choice = in.nextInt();
+        if(choice == 1)
+        {
+            System.out.println(" Enter New Designation: ");
+            dept = in.next();
+            F.setDept(dept);
+            System.out.println(" New Designation of Faculty: "+ F.getDept());
+        }
+        System.out.println(" Do you want to Change Course: (1.Yes /2.No) ");
+        choice = in.nextInt();
+        if(choice == 1)
+        {
+            System.out.println(" Enter New Course : ");
+            course = in.next();
+            F.setCourse(course);
+            System.out.println(" New Course of Employee: "+ F.getCourse());
+        }
+        
         System.out.println();
         System.out.println("*******************************************");
         System.out.println(" Class : Research Assistant ");
@@ -268,7 +316,19 @@ public class TestInterface
             System.out.println("Mark for Subject "+(i+1)+"is"+marks[i]);
         }
         System.out.println(" Salary: "+ R.calSalary());
+        System.out.println(" GPA: "+ R.calcGPA());
         System.out.println("*******************************************");
+        System.out.println();
+        System.out.println(" Do you want to Change Course: (1.Yes /2.No) ");
+        choice = in.nextInt();
+        if(choice == 1)
+        {
+            System.out.println(" Enter New Course: ");
+            course = in.next();
+            R.setCourse(course);
+            System.out.println(" New Address of Research Assistant: "+ R.getCourse());
+        }
+    
     }
     
 }
