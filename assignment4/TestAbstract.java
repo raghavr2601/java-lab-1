@@ -1,10 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package testabstract;
-
 import java.util.*;
 abstract class Shape
 {
@@ -28,7 +21,6 @@ abstract class Shape
 	abstract float getArea();
 	abstract float getPerimeter();
 }
-
 class Circle extends Shape
 {
 		private float radius ;
@@ -152,22 +144,21 @@ public class TestAbstract
 	{
 		float dim1,dim2;
 		String color;
+		Shape[] sh = new Shape[3];
 		Scanner det = new Scanner(System.in);
-                Shape S;
+		System.out.println();
 		System.out.println("************Circle***********");
 		System.out.println("Enter the radius");
 		dim1 = det.nextFloat();
 		System.out.println("Enter the colour");
 		color = det.next();
 		Circle c = new Circle(dim1,color);
-                S = c;
+		sh[0] = c;
+		System.out.println();
 		System.out.println("*******************CIRCLE DETAILS******************");
 		System.out.println("Radius    :" + c.getRadius());
-		System.out.println("Color     :" + S.getColor());
-		System.out.println("Area      :" + S.getArea());
-		System.out.println("Perimeter :" + S.getPerimeter());
-                System.out.println();
-		
+		System.out.println("Color     :" + c.getColor());
+		System.out.println();	
 		
 		System.out.println("************Rectangle***********");
 		System.out.println("Enter the width");
@@ -177,28 +168,44 @@ public class TestAbstract
 		System.out.println("Enter the colour");
 		color = det.next();
 		Rectangle r = new Rectangle(dim1,dim2,color);
-                S = r;
+		sh[1] = r;
+		System.out.println();
 		System.out.println("*******************RECTANGLE DETAILS******************");
 		System.out.println("Width     :" + r.getWidth());
 		System.out.println("Length    :" + r.getLength());
-		System.out.println("Color     :" + S.getColor());
-		System.out.println("Area      :" + S.getArea());
-		System.out.println("Perimeter :" + S.getPerimeter());
-                System.out.println();
-                
-                System.out.println("************Square***********");
+		System.out.println("Color     :" + r.getColor());
+		System.out.println();
+
+		System.out.println("************Square***********");
 		System.out.println("Enter the side");
 		dim1 = det.nextFloat();
 		System.out.println("Enter the colour");
 		color = det.next();
-		Square sq = new Square(dim1,color);
-		S = sq;
-                System.out.println("*******************SQUARE DETAILS******************");
-		System.out.println("Side      :" + sq.getSide());
-		System.out.println("Color     :" + S.getColor());
-		System.out.println("Area      :" + S.getArea());
-		System.out.println("Perimeter :" + S.getPerimeter());
-	
-        }
-        
+		Square s = new Square(dim1,color);System.out.println();
+		sh[2] = s;
+		System.out.println();
+		System.out.println("*******************SQUARE DETAILS******************");
+		System.out.println("Side      :" + s.getSide());
+		System.out.println("Color     :" + s.getColor());
+		System.out.println();
+
+		System.out.println("*******************Area and Perimeter of different shapes*******************");
+		for (int i=0 ; i<3;i++)
+		{
+		if( i == 0 )
+		{
+			System.out.println(" Circle ");
+		}
+		if( i == 1 )
+		{
+			System.out.println(" Rectangle ");
+		}
+		if( i == 2 )
+		{
+			System.out.println(" Square ");
+		}
+		System.out.println("Area      :" + sh[i].getArea());
+		System.out.println("Perimeter :" + sh[i].getPerimeter() + "\n");
+		}
+	}
 }
