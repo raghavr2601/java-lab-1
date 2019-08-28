@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package electricitybill;
 import java.util.Scanner;
- public class Electricitybill{
+class Electricitybill{
     public static void main(String[] args) {
         Scanner in= new Scanner(System.in);
         String name;
@@ -66,7 +65,7 @@ class EB {
             }
             if(diff>100 && diff<=200)
             {
-                tarrif = 100 + (diff-100)*(2.5f);
+                tarrif = 100f + (diff-100)*(2.5f);
             }
             if(diff>200 && diff<=500)
             {
@@ -85,15 +84,15 @@ class EB {
             }
             else if(diff>100 && diff<=200)
             {
-                tarrif = 200 + (diff-100)*(4.5);
+                tarrif = 200 + (diff-100)*(4.5f);
             }
             else if(diff>200 && diff<=500)
             {
-                tarrif = 200 + 100*(4.5) + (diff-200) * 6;
+                tarrif = 200 + 100*(4.5f) + (diff-200) * 6;
             }
             else if (diff>500)
             {
-                tarrif = 200 + 100 * (4.5) + 300 * 6 + (diff-500) * 7;
+                tarrif = 200 + 100 * (4.5f) + 300 * 6 + (diff-500) * 7;
             }
         }
     }

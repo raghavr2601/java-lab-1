@@ -1,0 +1,19 @@
+Enter name of consumer
+Ram
+Enter ID of consumer
+2
+Enter Previous Current rating ( units) : 
+100
+Enter Current Current rating ( units) : 
+250
+Enter type , Commercial ('c') or Domestic ('d') 
+d
+*************************************************
+Consumer Name                :Ram
+Consumer ID                  :2
+Previous Reading             :100.0
+Current Reading              :250.0
+Type of EB Connection        :Domestic
+Number of Units              :150.0
+Tarrif                       :225.0rs
+*************************************************

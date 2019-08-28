@@ -1,0 +1,117 @@
+1. Add Student records 
+2. Display Student details 
+3. Generate Marksheet 
+4. Search the student using ID 
+5. Search the student using Dept
+6. Exit
+Enter your choice: 
+1
+Enter the number of students: 
+2
+Enter the student name
+Rishi
+Enter the student regno
+1
+Enter the student department
+CSE
+Enter the mark of subject 1
+98
+Enter the mark of subject 2
+99
+Enter the mark of subject 3
+95
+Enter the student name
+Ram
+Enter the student regno
+2
+Enter the student department
+IT
+Enter the mark of subject 1
+88
+Enter the mark of subject 2
+89
+Enter the mark of subject 3
+99
+1. Add Student records 
+2. Display Student details 
+3. Generate Marksheet 
+4. Search the student using ID 
+5. Search the student using Dept
+6. Exit
+Enter your choice: 
+2
+***************************
+     Student Details    
+Name          : Rishi
+Regno         : 1
+Department    : CSE
+Grade         : O
+***************************
+***************************
+     Student Details    
+Name          : Ram
+Regno         : 2
+Department    : IT
+Grade         : O
+***************************
+1. Add Student records 
+2. Display Student details 
+3. Generate Marksheet 
+4. Search the student using ID 
+5. Search the student using Dept
+6. Exit
+Enter your choice: 
+3
+ Enter ID to Print Marksheet 
+1
+***************************
+     Student Marksheet    
+Name          : Rishi
+Regno         : 1
+Department    : CSE
+Total Marks   : 292
+Average Marks : 97.0
+Grade         : O
+***************************
+1. Add Student records 
+2. Display Student details 
+3. Generate Marksheet 
+4. Search the student using ID 
+5. Search the student using Dept
+6. Exit
+Enter your choice: 
+4
+Enter ID of Student to search: 
+2
+***************************
+     Student Details    
+Name          : Ram
+Regno         : 2
+Department    : IT
+Grade         : O
+***************************
+1. Add Student records 
+2. Display Student details 
+3. Generate Marksheet 
+4. Search the student using ID 
+5. Search the student using Dept
+6. Exit
+Enter your choice: 
+5
+Enter Dept of Student to search:
+CSE
+***************************
+     Student Details    
+Name          : Rishi
+Regno         : 1
+Department    : CSE
+Grade         : O
+***************************
+1. Add Student records 
+2. Display Student details 
+3. Generate Marksheet 
+4. Search the student using ID 
+5. Search the student using Dept
+6. Exit
+Enter your choice: 
+6

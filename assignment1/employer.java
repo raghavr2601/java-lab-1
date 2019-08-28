@@ -1,4 +1,4 @@
-package emp;
+
 import java.util.Date;  
 import java.util.Scanner;
 class employee
@@ -180,7 +180,7 @@ if(ch==2)
 {
     System.out.println("Enter ID of Employee to print payslip: ");
     id=input.nextInt();
-    for(int k=0;k<n;k++)
+    for(k=0;k<n;k++)
     {
         if(a[k].get_id()==id)
                 {
@@ -193,7 +193,7 @@ else if(ch==1)
 {
     System.out.println(" Enter ID of employee to promote: ");
     id=input.nextInt();
-    for(int k=0;k<n;k++)
+    for(k=0;k<n;k++)
     {
         if(a[k].get_id()==id)
                 {

@@ -1,0 +1,120 @@
+Enter the number of employees: 
+2
+Enter Employee ID                                          :
+1
+Enter Employee name                                        :
+Ram
+Enter Employee Designation  (Manager/Intern/Others)        :
+Intern
+Enter Employee DOB                                         :
+11/12/2000
+Enter Employee DOJ                                         :
+11/12/2014
+Enter Employee Basic                                       :
+20000
+Does Employee Opt for LIC Premium Account? (1. Yes / 2. No):
+2
+Enter Employee hours worked                                 :
+60
+Enter hourly wage                                           :
+200
+
+ Salary Details 
+ Gross Pay       : 15000.0
+ Deductions      : 500.0
+ Net Pay         : 14500.0
+
+Enter Employee ID                                          :
+2
+Enter Employee name                                        :
+Kumar
+Enter Employee Designation  (Manager/Intern/Others)        :
+Manager
+Enter Employee DOB                                         :
+11/12/1990
+Enter Employee DOJ                                         :
+11/12/2006
+Enter Employee Basic                                       :
+400000
+Does Employee Opt for LIC Premium Account? (1. Yes / 2. No):
+1
+Enter Employee LIC Amount                              :
+10000
+
+ Salary Details 
+ Gross Pay       : 600000.0
+ Deductions      : 42000.0
+ Net Pay         : 558000.0
+
+ Menu 
+1. Promote Employee 
+2. Print Payslip 
+1
+ Enter ID of employee to promote: 
+1
+ Number of years Employee worked: 5
+Promotion to Others Available!
+Do you want to Promote individual ?(1.Yes / 2.No)
+1
+
+Do you want to continue: (1.Yes / 2.No) 
+1
+ Menu 
+1. Promote Employee 
+2. Print Payslip 
+1
+ Enter ID of employee to promote: 
+2
+ Number of years Employee worked: 13
+Already Highly Posted!
+Do you want to continue: (1.Yes / 2.No) 
+1
+
+ Menu 
+1. Promote Employee 
+2. Print Payslip 
+2
+Enter ID of Employee to print payslip: 
+1
+
+**************************************
+           Employer Details           
+               Payslip                
+Emp id            : 1.0
+Emp name          : Ram
+Designation       : Others
+Basic Pay         : 20000.0
+DA                : 6000.0
+HRA               : 2000.0
+PF                : 1600.0
+LIC               : 0.0
+Gross Pay         : 28000.0
+Deductions        : 1600.0
+Net Salary        : 26400.0
+**************************************
+Do you want to continue: (1.Yes / 2.No) 
+1
+
+ Menu 
+1. Promote Employee 
+2. Print Payslip 
+2
+Enter ID of Employee to print payslip: 
+2
+**************************************
+           Employer Details           
+               Payslip                
+Emp id            : 2.0
+Emp name          : Kumar
+Designation       : Manager
+Basic Pay         : 400000.0
+DA                : 160000.0
+HRA               : 40000.0
+PF                : 32000.0
+LIC               : 10000.0
+Gross Pay         : 600000.0
+Deductions        : 42000.0
+Net Salary        : 558000.0
+**************************************
+Do you want to continue: (1.Yes / 2.No) 
+2

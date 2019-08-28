@@ -1,4 +1,4 @@
-package stu;
+
 import java.util.Scanner;
 class student
 {
@@ -14,6 +14,10 @@ int get_id()
 String get_name()
 {
     return name;
+}
+String get_dept()
+{
+    return dept;
 }
 student(String Name, int reg, String dep, int marks[])
 {
@@ -54,7 +58,6 @@ void calculate()
 	else
 	{
 		grade="RA";
-		
 	}
 }
 void display(int xregno)
@@ -185,7 +188,7 @@ public static void main(String args[])
 		int flag = 0;
 		for(int i=0;i<n;i++)
 		{
-			if((a[i].get_name()).equals(dep))
+			if((a[i].get_dept()).equals(dep))
 			{
 				flag = 1;
 				a[i].display(dep);
